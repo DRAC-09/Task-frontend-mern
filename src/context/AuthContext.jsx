@@ -22,7 +22,7 @@ export const AuthProvider = (prop) => {
   const signup = async (user) => {
     try {
       const res = await registerRequest(user);
-      console.log(res.data);
+      // console.log(res.data);
       setUser(res.data);
       setIsAuthenticated(true);
     } catch (error) {
@@ -33,13 +33,19 @@ export const AuthProvider = (prop) => {
   const signin = async (user) => {
     try {
       const res = await loginRequest(user);
-      console.log(res.data);
+      // console.log(res.data);
       setUser(res.data);
       setIsAuthenticated(true);
     } catch (error) {
       console.log(error);
       setErrors(error.response.data);
     }
+  };
+
+  const logout = () => {
+    Cookies.remove("token");
+    setIsAuthenticated(false);
+    setUser(null);
   };
 
   useEffect(() => {
@@ -88,6 +94,7 @@ export const AuthProvider = (prop) => {
       value={{
         signup,
         signin,
+        logout,
         loading,
         user,
         isAuthenticated,
