@@ -6,7 +6,7 @@ function NavBar() {
 
   return (
     <nav className="flex justify-between py-5 px-10 bg-sky-700 mb-5">
-      <Link className="text-xl font-bold" to="/">
+      <Link className="text-xl font-bold" to={isAuthenticated ? "/tasks" : "/"}>
         Tasks Manager
       </Link>
       <ul className="flex gap-x-5">

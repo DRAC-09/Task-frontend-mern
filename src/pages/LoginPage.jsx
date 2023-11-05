@@ -1,3 +1,4 @@
+import { inputSyle, labelStyle } from "../styles/tailwind";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -32,20 +33,30 @@ function LoginPage() {
         <h1 className="text-2xl font-bold text-center pb-5">Login</h1>
 
         <form onSubmit={onSubmit}>
-          <input
-            type="email"
-            {...register("email", { required: true })}
-            className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-            placeholder="Email"
-          />
+          <div className="bg-zinc-800 mb-10">
+            <div className="relative bg-inherit">
+              <input
+                type="email"
+                {...register("email", { required: true })}
+                className={inputSyle}
+                placeholder=""
+              />
+              <label className={labelStyle}>Email</label>
+            </div>
+          </div>
           {errors.email && <p className="text-red-500">Email is required</p>}
 
-          <input
-            type="password"
-            {...register("password", { required: true })}
-            className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
-            placeholder="Password"
-          />
+          <div className="bg-zinc-800 mb-5">
+            <div className="relative bg-inherit">
+              <input
+                type="password"
+                {...register("password", { required: true })}
+                className={inputSyle}
+                placeholder=" "
+              />
+              <label className={labelStyle}>Password</label>
+            </div>
+          </div>
           {errors.password && (
             <p className="text-red-500">Password is required</p>
           )}
