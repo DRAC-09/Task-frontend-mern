@@ -1,5 +1,9 @@
 import { createContext, useContext, useState } from "react";
-import { createTaskRequest, getTasksRequest } from "../api/tasks";
+import {
+  createTaskRequest,
+  deteleTasksRequest,
+  getTasksRequest,
+} from "../api/tasks";
 
 const TaskContext = createContext();
 
@@ -25,14 +29,24 @@ export function TaskProvider(prop) {
   };
 
   const createTask = async (task) => {
-    const res = await createTaskRequest(task);
-    // console.log(res);
+    await createTaskRequest(task);
   };
+
+  const deleteTask = async (id) => {
+    try {
+      const res = await deteleTasksRequest(id);
+      if (res.status === 204) setTasks(tasks.filter((task) => task._id != id)); // Arreglo nuevo sin la tarea eliminada
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <TaskContext.Provider
       value={{
         tasks,
         createTask,
+        deleteTask,
         getTasks,
       }}
     >
