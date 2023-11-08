@@ -1,4 +1,4 @@
-import { inputSyle, labelStyle } from "../styles/tailwind";
+import { inputSyle, labelStyle, button } from "../styles/tailwind";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
@@ -35,12 +35,16 @@ function RegisterPage() {
           <div className="bg-zinc-800 mb-5">
             <div className="relative bg-inherit">
               <input
+                id="username"
                 type="text"
                 {...register("username", { required: true })}
                 className={inputSyle}
                 placeholder=" "
+                autoFocus
               />
-              <label className={labelStyle}>Username</label>
+              <label htmlFor="username" className={labelStyle}>
+                Username
+              </label>
             </div>
           </div>
           {errors.username && (
@@ -50,37 +54,45 @@ function RegisterPage() {
           <div className="bg-zinc-800 mb-5">
             <div className="relative bg-inherit">
               <input
+                id="email"
                 type="email"
                 {...register("email", { required: true })}
                 className={inputSyle}
                 placeholder=" "
               />
-              <label className={labelStyle}>Email</label>
+              <label htmlFor="email" className={labelStyle}>
+                Email
+              </label>
             </div>
           </div>
           {errors.email && <p className="text-red-500">Email is required</p>}
 
-          <div className="bg-zinc-800 mb-10">
+          <div className="bg-zinc-800 mb-5">
             <div className="relative bg-inherit">
               <input
+                id="password"
                 type="password"
                 {...register("password", { required: true })}
                 className={inputSyle}
                 placeholder=" "
               />
-              <label className={labelStyle}>Password</label>
+              <label htmlFor="password" className={labelStyle}>
+                Password
+              </label>
             </div>
           </div>
           {errors.password && (
             <p className="text-red-500">Password is required</p>
           )}
 
-          {/* <div className="flex justify-end"> */}
-          <button type="submit">Register</button>
-          {/* </div> */}
+          <div className="flex justify-end">
+            <button type="submit" className={button}>
+              Register
+            </button>
+          </div>
         </form>
 
-        <p className="flex gap-x-2 justify-between mt-5">
+        <p className="flex gap-x-2 justify-center mt-5 text-sm md:text-md">
           Alrady have an account?{" "}
           <Link to="/login" className="text-sky-500">
             Sign In

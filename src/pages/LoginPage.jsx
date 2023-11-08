@@ -1,4 +1,5 @@
-import { inputSyle, labelStyle } from "../styles/tailwind";
+import "../styles/style.css";
+import { inputSyle, labelStyle, button } from "../styles/tailwind";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -33,15 +34,19 @@ function LoginPage() {
         <h1 className="text-2xl font-bold text-center pb-5">Login</h1>
 
         <form onSubmit={onSubmit}>
-          <div className="bg-zinc-800 mb-10">
+          <div className="bg-zinc-800 mb-5">
             <div className="relative bg-inherit">
               <input
+                id="email"
                 type="email"
                 {...register("email", { required: true })}
                 className={inputSyle}
                 placeholder=""
+                autoFocus
               />
-              <label className={labelStyle}>Email</label>
+              <label htmlFor="email" className={labelStyle}>
+                Email
+              </label>
             </div>
           </div>
           {errors.email && <p className="text-red-500">Email is required</p>}
@@ -49,22 +54,28 @@ function LoginPage() {
           <div className="bg-zinc-800 mb-5">
             <div className="relative bg-inherit">
               <input
+                id="password"
                 type="password"
                 {...register("password", { required: true })}
                 className={inputSyle}
                 placeholder=" "
               />
-              <label className={labelStyle}>Password</label>
+              <label htmlFor="password" className={labelStyle}>
+                Password
+              </label>
             </div>
           </div>
           {errors.password && (
             <p className="text-red-500">Password is required</p>
           )}
-
-          <button type="submit">Login</button>
+          <div className="flex justify-end">
+            <button type="submit" className={button}>
+              Login
+            </button>
+          </div>
         </form>
 
-        <p className="flex gap-x-2 justify-between mt-5">
+        <p className="flex gap-x-2 justify-center mt-5 text-sm md:text-md">
           Don´t have an account?{" "}
           <Link to="/register" className="text-sky-500">
             Sign Up

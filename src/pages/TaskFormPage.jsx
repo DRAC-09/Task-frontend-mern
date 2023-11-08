@@ -1,4 +1,4 @@
-import { inputSyle, textStyle, labelStyle } from "../styles/tailwind";
+import { inputSyle, textStyle, labelStyle, button } from "../styles/tailwind";
 import { useForm } from "react-hook-form";
 import { useTasks } from "../context/TasksContext";
 import { useNavigate, useParams } from "react-router-dom";
@@ -49,25 +49,31 @@ function TaskFormPage() {
           <div className="bg-zinc-800 mb-10">
             <div className="relative bg-inherit">
               <input
+                id="title"
                 type="text"
                 placeholder=" "
                 autoFocus
                 {...register("title")}
                 className={inputSyle}
               />
-              <label className={labelStyle}>Title</label>
+              <label htmlFor="title" className={labelStyle}>
+                Title
+              </label>
             </div>
           </div>
 
           <div className="bg-zinc-800 mb-5">
             <div className="relative bg-inherit">
               <textarea
+                id="description"
                 type="text"
                 placeholder=" "
                 {...register("description")}
                 className={textStyle}
               ></textarea>
-              <label className={labelStyle}>Description</label>
+              <label htmlFor="description" className={labelStyle}>
+                Description
+              </label>
             </div>
           </div>
 
@@ -86,7 +92,7 @@ function TaskFormPage() {
           </div>
 
           <div className="flex justify-end">
-            <button className="border border-cyan-800  rounded-md px-3 ">
+            <button id="save" className={button}>
               Save
             </button>
           </div>
