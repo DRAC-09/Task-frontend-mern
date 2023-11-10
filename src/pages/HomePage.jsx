@@ -1,32 +1,31 @@
-// import Modal from "../components/Modal";
-// import { useState } from "react";
+import landing from "../assets/landing.png";
+import { Link } from "react-router-dom";
 
 function HomePage() {
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // const openModal = () => {
-  //   setIsModalOpen(true);
-  // };
-
-  // const closeModal = () => {
-  //   setIsModalOpen(false);
-  // };
-
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      Home Page
-      {/* <button
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-        onClick={openModal}
-      >
-        Abrir Modal
-      </button>
-      <Modal isOpen={isModalOpen} closeModal={closeModal}>
-        <div>
-          <h2 className="text-xl font-bold mb-2">Mi Ventana Modal</h2>
-          <p>Contenido de la ventana modal...</p>
+    <div className="flex flex-col-reverse md:flex-row items-center justify-center h-[calc(100vh-160px)]">
+      <div className="flex flex-col items-center md:items-start justify-center md:px-20">
+        <p className="text-justify">
+          Welcome to our task management platform! We're excited to have you on
+          board. With our tool, you can efficiently organize your daily tasks
+          and maintain complete control over your projects.
+        </p>
+        <div className="flex gap-2 mt-5">
+          <button className="bg-sky-800 rounded-full pb-1 px-4 mt-1 text-md">
+            <Link to="/login">Login</Link>
+          </button>
+          <button className="bg-sky-800 rounded-full pb-1 px-4 mt-1 text-md">
+            <Link to="/Register">Register</Link>
+          </button>
         </div>
-      </Modal> */}
+      </div>
+      <div className="flex justify-center md:items-center">
+        <img
+          src={landing}
+          alt="Landing Page"
+          className="w-[400px] md:w-[1000px] md:mx-20"
+        />
+      </div>
     </div>
   );
 }

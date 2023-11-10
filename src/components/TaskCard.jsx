@@ -18,8 +18,8 @@ function TaskCard(prop) {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="flex flex-col justify-between bg-sky-950 bg-opacity-50 rounded-sm border-2 border-sky-950 whitespace-normal break-words">
-      <div className="bg-sky-950 px-2 py-2">
+    <div className="flex flex-col justify-between rounded-md shadow-md whitespace-normal break-words">
+      <div className="text-white bg-gray-900 bg-opacity-30 px-2 py-2 rounded-md">
         <h1 className="text-md md:text-[10px] font-bold ">{task.title}</h1>
       </div>
 
@@ -29,7 +29,8 @@ function TaskCard(prop) {
             {task.description}
           </p>
         </div>
-        <div className="flex mt-2 items-center justify-between gap-3 text-sm md:text-[10px]">
+        {/* <hr className="bg-black h-0.5 my-1" /> */}
+        <div className="flex items-center justify-between gap-3 text-sm md:text-[10px]">
           <p>{dayjs(task.date).utc().format("DD/MM/YY")}</p>
           <div className="flex gap-3">
             <Link

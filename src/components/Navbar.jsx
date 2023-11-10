@@ -20,7 +20,7 @@ function NavBar() {
   const closeModal = () => setUserMenu(false);
 
   return (
-    <nav className="bg-sky-950 mb-5 py-4 px-5 md:px-10">
+    <nav className="fixed w-full mb-5 py-4 px-5 md:px-28 shadow-xl">
       <div className="container mx-au to flex justify-between items-center">
         <div className="flex gap-2 items-center">
           <img src={logo} alt="Task Manager" className="h-7 w-7" />
@@ -37,7 +37,7 @@ function NavBar() {
               <li
                 className={`${
                   location.pathname === "/tasks"
-                    ? "text border-b-2"
+                    ? "bg-sky-600 rounded-md px-2 py-1"
                     : "text-white"
                 } hidden sm:block mr-3`}
               >
@@ -50,7 +50,7 @@ function NavBar() {
               <li
                 className={`${
                   location.pathname === "/add-task"
-                    ? "text border-b-2"
+                    ? "bg-sky-600 rounded-md px-2 py-1"
                     : "text-white"
                 } hidden sm:block`}
               >
@@ -77,7 +77,7 @@ function NavBar() {
                         onClick={closeModal} // Cierra la modal al hacer clic en el contenedor principal
                         className="fixed inset-0 flex items-start justify-end pt-14 pr-20"
                       >
-                        <div className="right-3 grid grid-cols-[1fr_5fr] gap-3 items-center text-[13px] px-3 py-2 bg-white text-sky-950 border rounded-sm">
+                        <div className="right-3 grid grid-cols-[1fr_5fr] gap-3 items-center text-[13px] px-3 py-2 bg-white text-sky-950 border rounded-sm mr-8">
                           <TfiSettings />
                           <Link>Perfil</Link>
                           <TfiPowerOff />
@@ -131,12 +131,12 @@ function NavBar() {
             </>
           ) : (
             <div className="flex gap-2">
-              <button className="bg-sky-800 rounded-md pb-1 px-2 mt-1 text-sm">
+              {/* <button className="bg-sky-800 rounded-md pb-1 px-2 mt-1 text-sm">
                 <Link to="/login">Login</Link>
               </button>
               <button className="bg-sky-800 rounded-md pb-1 px-2 mt-1 text-sm">
                 <Link to="/Register">Register</Link>
-              </button>
+              </button> */}
             </div>
           )}
         </ul>

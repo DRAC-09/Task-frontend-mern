@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import TaskFormPage from "./pages/TaskFormPage";
 import TasksPage from "./pages/TasksPage";
 import ProfilePage from "./pages/ProfilePage";
+import Footer from "./components/Footer";
 
 import ProtectedRoute from "./ProtectedRoute";
 import { TaskProvider } from "./context/TasksContext";
@@ -18,7 +19,7 @@ function App() {
       <TaskProvider>
         <BrowserRouter>
           <NavBar />
-          <main className="container mx-auto px-10 md:px-16">
+          <main className="container mx-auto px-10 md:px-16 py-20">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
@@ -32,6 +33,7 @@ function App() {
               </Route>
             </Routes>
           </main>
+          <Footer />
         </BrowserRouter>
       </TaskProvider>
     </AuthProvider>
