@@ -22,6 +22,5 @@ export const textStyle =
 
 export const labelStyle =
   "absolute cursor-text left-0 -top-3 text-[11px] text-gray-400 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-[11px] transition-all";
-("absolute cursor-text left-0 -top-3 text-[11px] text-gray-400 bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-[11px] transition-all");
 
 export const button = "bg-sky-800 rounded-md px-3 pb-1";

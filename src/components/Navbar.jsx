@@ -20,7 +20,7 @@ function NavBar() {
   const closeModal = () => setUserMenu(false);
 
   return (
-    <nav className="fixed w-full mb-5 py-4 px-5 md:px-28 shadow-xl">
+    <nav className="fixed w-full mb-5 py-4 px-5 md:px-28 shadow-xl z-20">
       <div className="container mx-au to flex justify-between items-center">
         <div className="flex gap-2 items-center">
           <img src={logo} alt="Task Manager" className="h-7 w-7" />
@@ -37,7 +37,7 @@ function NavBar() {
               <li
                 className={`${
                   location.pathname === "/tasks"
-                    ? "bg-sky-600 rounded-md px-2 py-1"
+                    ? "border-b px-1 py-1"
                     : "text-white"
                 } hidden sm:block mr-3`}
               >
@@ -50,7 +50,7 @@ function NavBar() {
               <li
                 className={`${
                   location.pathname === "/add-task"
-                    ? "bg-sky-600 rounded-md px-2 py-1"
+                    ? "border-b px-1 py-1"
                     : "text-white"
                 } hidden sm:block`}
               >

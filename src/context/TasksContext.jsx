@@ -24,7 +24,6 @@ export function TaskProvider(prop) {
     try {
       const res = await getTasksRequest();
       setTasks(res.data);
-      // console.log(res.data);
     } catch (error) {
       console.log(error);
     }

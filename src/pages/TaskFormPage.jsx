@@ -1,7 +1,7 @@
-import { inputSyle, textStyle, labelStyle, button } from "../styles/tailwind";
+import "../styles/tailwind.css";
 import { useForm } from "react-hook-form";
 import { useTasks } from "../context/TasksContext";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 
 //Modificar la fecha
@@ -54,9 +54,9 @@ function TaskFormPage() {
                 placeholder=" "
                 autoFocus
                 {...register("title")}
-                className={inputSyle}
+                className="input peer"
               />
-              <label htmlFor="title" className={labelStyle}>
+              <label htmlFor="title" className="label">
                 Title
               </label>
             </div>
@@ -69,9 +69,9 @@ function TaskFormPage() {
                 type="text"
                 placeholder=" "
                 {...register("description")}
-                className={textStyle}
+                className="text peer"
               ></textarea>
-              <label htmlFor="description" className={labelStyle}>
+              <label htmlFor="description" className="label">
                 Description
               </label>
             </div>
@@ -83,17 +83,20 @@ function TaskFormPage() {
                 type="date"
                 placeholder=""
                 {...register("date")}
-                className={inputSyle}
+                className="input peer"
               />
-              <label htmlFor="date" className={labelStyle}>
+              <label htmlFor="date" className="label">
                 Date
               </label>
             </div>
           </div>
 
-          <div className="flex justify-end">
-            <button id="save" className={button}>
+          <div className="flex justify-center md:justify-end gap-2">
+            <button id="save" className=" btn bg-sky-500 rounded-md">
               Save
+            </button>
+            <button id="save" className="btn bg-red-500 rounded-md">
+              <Link to="/tasks">Cancel</Link>
             </button>
           </div>
         </form>

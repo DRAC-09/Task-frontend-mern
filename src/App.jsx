@@ -1,4 +1,3 @@
-import "./App.css";
 import { AuthProvider } from "./context/AuthContext";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
@@ -19,7 +18,7 @@ function App() {
       <TaskProvider>
         <BrowserRouter>
           <NavBar />
-          <main className="container mx-auto px-10 md:px-16 py-20">
+          <main className="container mx-auto px-10 md:px-16 fixed top-0 left-0 right-0 bottom-0 overflow-auto my-16 z-10">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />

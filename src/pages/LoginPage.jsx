@@ -1,5 +1,4 @@
-import "../styles/style.css";
-import { inputSyle, labelStyle, button } from "../styles/tailwind";
+import "../styles/tailwind.css";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
@@ -24,8 +23,8 @@ function LoginPage() {
   }, [isAuthenticated]);
 
   return (
-    <div className="flex h-[calc(100vh-100px)] items-center justify-center">
-      <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
+    <div className="flex h-full items-center justify-center">
+      <div className="bg-black bg-opacity-50 max-w-md w-full p-10 rounded-md">
         {loginErrors.map((error, i) => (
           <div className="bg-red-500 p-2 text-white my-2" key={i}>
             {error}
@@ -40,27 +39,27 @@ function LoginPage() {
                 id="email"
                 type="email"
                 {...register("email", { required: true })}
-                className={inputSyle}
+                className="input peer"
                 placeholder=""
                 autoFocus
               />
-              <label htmlFor="email" className={labelStyle}>
+              <label htmlFor="email" className="label">
                 Email
               </label>
             </div>
           </div>
           {errors.email && <p className="text-red-500">Email is required</p>}
 
-          <div className="bg-zinc-800 mb-5">
+          <div className="bg-black mb-5">
             <div className="relative bg-inherit">
               <input
                 id="password"
                 type="password"
                 {...register("password", { required: true })}
-                className={inputSyle}
+                className="input peer bg-black bg-opacity-10 "
                 placeholder=" "
               />
-              <label htmlFor="password" className={labelStyle}>
+              <label htmlFor="password" className="label">
                 Password
               </label>
             </div>
@@ -69,7 +68,7 @@ function LoginPage() {
             <p className="text-red-500">Password is required</p>
           )}
           <div className="flex justify-end">
-            <button type="submit" className={button}>
+            <button type="submit" className="btn bg-sky-800">
               Login
             </button>
           </div>

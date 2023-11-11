@@ -2,6 +2,7 @@ import { GoTrash, GoPencil } from "react-icons/go";
 import { useTasks } from "../context/TasksContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import "../styles/tailwind.css";
 
 //Modificar la fecha
 import dayjs from "dayjs";
@@ -18,7 +19,7 @@ function TaskCard(prop) {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="flex flex-col justify-between rounded-md shadow-md whitespace-normal break-words">
+    <div className="flex flex-col justify-between rounded-md shadow-xl whitespace-normal break-words bg-black bg-opacity-30">
       <div className="text-white bg-gray-900 bg-opacity-30 px-2 py-2 rounded-md">
         <h1 className="text-md md:text-[10px] font-bold ">{task.title}</h1>
       </div>
@@ -57,14 +58,11 @@ function TaskCard(prop) {
                   onClick={() => {
                     deleteTask(task._id);
                   }}
-                  className=" text-white text-xs mt-2 p-2 bg-green-500 rounded-md"
+                  className="btn bg-sky-500"
                 >
                   Accept
                 </button>
-                <button
-                  onClick={closeModal}
-                  className=" text-white text-xs mt-2 p-2 bg-red-500 rounded-md"
-                >
+                <button onClick={closeModal} className="btn bg-red-500">
                   Cancel
                 </button>
               </div>
