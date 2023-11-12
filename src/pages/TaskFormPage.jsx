@@ -44,9 +44,9 @@ function TaskFormPage() {
 
   return (
     <div className="flex h-[calc(100vh-100px)] justify-center items-center">
-      <div className="w-full max-w-md bg-zinc-800 p-10 rounded-md">
+      <div className="w-full max-w-md bg-black bg-opacity-40 p-10 rounded-md">
         <form onSubmit={onSubmit}>
-          <div className="bg-zinc-800 mb-10">
+          <div className="bg-slate-950 mb-10">
             <div className="relative bg-inherit">
               <input
                 id="title"
@@ -62,7 +62,7 @@ function TaskFormPage() {
             </div>
           </div>
 
-          <div className="bg-zinc-800 mb-5">
+          <div className="bg-slate-950 mb-5">
             <div className="relative bg-inherit">
               <textarea
                 id="description"
@@ -77,7 +77,7 @@ function TaskFormPage() {
             </div>
           </div>
 
-          <div className="bg-zinc-800 mb-5">
+          <div className="bg-slate-950 mb-5">
             <div className="relative bg-inherit">
               <input
                 type="date"

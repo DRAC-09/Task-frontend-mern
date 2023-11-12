@@ -20,7 +20,7 @@ function NavBar() {
   const closeModal = () => setUserMenu(false);
 
   return (
-    <nav className="fixed w-full mb-5 py-4 px-5 md:px-28 shadow-xl z-20">
+    <nav className="fixed flex justify-center w-full mb-5 py-4 px-5 md:px-28 shadow-xl z-20">
       <div className="container mx-au to flex justify-between items-center">
         <div className="flex gap-2 items-center">
           <img src={logo} alt="Task Manager" className="h-7 w-7" />
@@ -36,13 +36,26 @@ function NavBar() {
             <>
               <li
                 className={`${
+                  location.pathname === "/" || location.pathname === "/home"
+                    ? "border-b px-1 py-1"
+                    : "text-white"
+                } hidden sm:block`}
+              >
+                <div className="flex items-center gap-2">
+                  {/* <TfiWrite /> */}
+                  <Link to="/home">Home</Link>
+                </div>
+              </li>
+
+              <li
+                className={`${
                   location.pathname === "/tasks"
                     ? "border-b px-1 py-1"
                     : "text-white"
-                } hidden sm:block mr-3`}
+                } hidden sm:block`}
               >
                 <div className="flex items-center gap-2">
-                  <TfiFiles />
+                  {/* <TfiFiles /> */}
                   <Link to="/tasks">Tasks</Link>
                 </div>
               </li>
@@ -55,8 +68,21 @@ function NavBar() {
                 } hidden sm:block`}
               >
                 <div className="flex items-center gap-2">
-                  <TfiWrite />
+                  {/* <TfiWrite /> */}
                   <Link to="/add-task">Add Task</Link>
+                </div>
+              </li>
+
+              <li
+                className={`${
+                  location.pathname === "/about"
+                    ? "border-b px-1 py-1"
+                    : "text-white"
+                } hidden sm:block`}
+              >
+                <div className="flex items-center gap-2">
+                  {/* <TfiWrite /> */}
+                  <Link to="/about">About</Link>
                 </div>
               </li>
 
@@ -68,61 +94,72 @@ function NavBar() {
                   <FaCircleUser className="text-[20px]" />
                   <h1>{user.username}</h1>
                   <TfiAngleDown />
-                  {/* {userMenu ? <FaChevronUp /> : <FaChevronDown />} */}
                 </button>
                 {userMenu && (
                   <div>
                     <div className="hidden sm:block">
                       <div
                         onClick={closeModal} // Cierra la modal al hacer clic en el contenedor principal
-                        className="fixed inset-0 flex items-start justify-end pt-14 pr-20"
+                        className="fixed inset-0 flex items-start justify-end pt-14 bg-black bg-opacity-50 pr-28"
                       >
-                        <div className="right-3 grid grid-cols-[1fr_5fr] gap-3 items-center text-[13px] px-3 py-2 bg-white text-sky-950 border rounded-sm mr-8">
-                          <TfiSettings />
-                          <Link>Perfil</Link>
-                          <TfiPowerOff />
-                          <Link
-                            to="/"
-                            onClick={() => {
-                              logout();
-                            }}
-                          >
-                            Logout
-                          </Link>
-                        </div>
+                        <ul className="text-2sm bg-white text-sky-950 border rounded-sm w-[120px]">
+                          <li className="selected">
+                            <TfiSettings />
+                            <Link>Perfil</Link>
+                          </li>
+                          <li className="selected">
+                            <TfiPowerOff />
+                            <Link
+                              to="/"
+                              onClick={() => {
+                                logout();
+                              }}
+                            >
+                              Logout
+                            </Link>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                     <div className="block sm:hidden">
                       <div
                         onClick={closeModal} // Cierra la modal al hacer clic en el contenedor principal
-                        className="fixed inset-0 flex items-start justify-end pt-14 mr-5"
+                        className="fixed inset-0 flex items-start justify-end pt-14 pr-5"
                       >
-                        <div className="mr-0">
-                          <ul className="grid grid-cols-[1fr_3fr] gap-2 items-center justify-left text-md px-4 py-3 bg-white text-sky-950 rounded-sm capitalize">
+                        <ul className="text-md bg-white text-sky-950 border rounded-sm w-[120px]">
+                          <li className="selected">
                             <TfiFiles />
-                            <li>
-                              <Link to="/tasks">Tasks</Link>
-                            </li>
+                            <Link to="/home">Home</Link>
+                          </li>
+                          <li className="selected">
+                            <TfiFiles />
+                            <Link to="/tasks">Tasks</Link>
+                          </li>
+                          <li className="selected">
                             <TfiWrite />
-                            <li>
-                              <Link to="/add-task">Add Task</Link>
-                            </li>
+                            <Link to="/add-task">Add Task</Link>
+                          </li>
+                          <li className="selected">
+                            <TfiFiles />
+                            <Link to="/about">About</Link>
+                          </li>
+                          <li className="selected">
                             <TfiSettings />
                             <Link>Perfil</Link>
+                          </li>
+                          <li className="selected">
                             <TfiPowerOff />
-                            <li>
-                              <Link
-                                to="/"
-                                onClick={() => {
-                                  logout();
-                                }}
-                                className=""
-                              >
-                                Logout
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
+                            <Link
+                              to="/"
+                              onClick={() => {
+                                logout();
+                              }}
+                              className=""
+                            >
+                              Logout
+                            </Link>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -130,14 +167,33 @@ function NavBar() {
               </li>
             </>
           ) : (
-            <div className="flex gap-2">
-              {/* <button className="bg-sky-800 rounded-md pb-1 px-2 mt-1 text-sm">
-                <Link to="/login">Login</Link>
-              </button>
-              <button className="bg-sky-800 rounded-md pb-1 px-2 mt-1 text-sm">
-                <Link to="/Register">Register</Link>
-              </button> */}
-            </div>
+            <>
+              <li
+                className={`${
+                  location.pathname === "/" || location.pathname === "/home"
+                    ? "border-b px-1 py-1"
+                    : "text-white"
+                } hidden sm:block`}
+              >
+                <div className="flex items-center gap-2">
+                  {/* <TfiWrite /> */}
+                  <Link to="/home">Home</Link>
+                </div>
+              </li>
+
+              <li
+                className={`${
+                  location.pathname === "/about"
+                    ? "border-b px-1 py-1"
+                    : "text-white"
+                } hidden sm:block`}
+              >
+                <div className="flex items-center gap-2">
+                  {/* <TfiWrite /> */}
+                  <Link to="/about">About</Link>
+                </div>
+              </li>
+            </>
           )}
         </ul>
       </div>

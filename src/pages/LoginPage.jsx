@@ -24,7 +24,7 @@ function LoginPage() {
 
   return (
     <div className="flex h-full items-center justify-center">
-      <div className="bg-black bg-opacity-50 max-w-md w-full p-10 rounded-md">
+      <div className="bg-black bg-opacity-40 max-w-md w-full p-10">
         {loginErrors.map((error, i) => (
           <div className="bg-red-500 p-2 text-white my-2" key={i}>
             {error}
@@ -33,7 +33,7 @@ function LoginPage() {
         <h1 className="text-2xl font-bold text-center pb-5">Login</h1>
 
         <form onSubmit={onSubmit}>
-          <div className="bg-zinc-800 mb-5">
+          <div className="bg-slate-950">
             <div className="relative bg-inherit">
               <input
                 id="email"
@@ -48,9 +48,11 @@ function LoginPage() {
               </label>
             </div>
           </div>
-          {errors.email && <p className="text-red-500">Email is required</p>}
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">Email is required</p>
+          )}
 
-          <div className="bg-black mb-5">
+          <div className="bg-slate-950 mt-5">
             <div className="relative bg-inherit">
               <input
                 id="password"
@@ -65,7 +67,7 @@ function LoginPage() {
             </div>
           </div>
           {errors.password && (
-            <p className="text-red-500">Password is required</p>
+            <p className="text-red-500 text-sm mt-1">Password is required</p>
           )}
           <div className="flex justify-end">
             <button type="submit" className="btn bg-sky-800">

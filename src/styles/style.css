@@ -1,7 +1,0 @@
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1); /* Cambia el color a blanco */
-}
-
-input:-webkit-autofill {
-  background-color: gray !important; /* Establece el color de fondo gris deseado */
-}
