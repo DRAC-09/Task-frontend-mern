@@ -92,7 +92,9 @@ function NavBar() {
                   className="flex items-center justify-center gap-2 pt-1 capitalize"
                 >
                   <FaCircleUser className="text-[20px]" />
-                  <h1>{user.username}</h1>
+                  <h1 className="text-xs w-[50px] truncate md:text-base md:w-[150px]">
+                    {user.username}
+                  </h1>
                   <TfiAngleDown />
                 </button>
                 {userMenu && (
@@ -100,7 +102,7 @@ function NavBar() {
                     <div className="hidden sm:block">
                       <div
                         onClick={closeModal} // Cierra la modal al hacer clic en el contenedor principal
-                        className="fixed inset-0 flex items-start justify-end pt-14 bg-black bg-opacity-50 pr-28"
+                        className="fixed inset-0 flex items-start justify-end pt-14 pr-28"
                       >
                         <ul className="text-2sm bg-white text-sky-950 border rounded-sm w-[120px]">
                           <li className="selected">

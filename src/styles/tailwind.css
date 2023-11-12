@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Cambia el color al icono del input data */
 input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(1); /* Cambia el color a blanco */
 }
 
-input:-internal-autofill-selected {
-  background-color: gray !important;
+/* Ocultar overflow (barra lateral de desplazamiento) */
+::-webkit-scrollbar {
+  display: none;
 }
 
 @layer components {

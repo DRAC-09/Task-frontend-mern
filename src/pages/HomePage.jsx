@@ -7,7 +7,7 @@ function HomePage() {
   const { isAuthenticated } = useAuth();
 
   return (
-    <div className="flex flex-col-reverse md:flex-row items-center md:pl-20 md:pt-10">
+    <div className="flex flex-col-reverse md:flex-row md:pt-10">
       <div className="flex md:w-1/2 flex-col items-center md:items-start justify-center md:px-10">
         <p className="text-justify md:text-2xl font-light">
           Welcome to our task management platform! We're excited to have you on
@@ -16,18 +16,27 @@ function HomePage() {
         </p>
         {isAuthenticated ? (
           <div className="flex gap-2 justify-center mt-5">
-            <button className="btn bg-fuchsia-700 md:text-2xl px-5 pb-2 rounded-xl">
-              <Link to="/tasks">Tasks</Link>
-            </button>
+            <Link
+              to="/tasks"
+              className="btn bg-fuchsia-700 md:text-2xl px-5 pb-2 rounded-xl"
+            >
+              Tasks
+            </Link>
           </div>
         ) : (
           <div className="flex gap-2 justify-center mt-5">
-            <button className="btn bg-fuchsia-700 md:text-2xl px-5 pb-2 rounded-xl">
-              <Link to="/login">Login</Link>
-            </button>
-            <button className="btn bg-fuchsia-700 md:text-2xl px-5 pb-2 rounded-xl">
-              <Link to="/Register">Register</Link>
-            </button>
+            <Link
+              to="/login"
+              className="btn bg-fuchsia-700 md:text-2xl px-5 pb-2 rounded-xl"
+            >
+              Login
+            </Link>
+            <Link
+              to="/Register"
+              className="btn bg-fuchsia-700 md:text-2xl px-5 pb-2 rounded-xl"
+            >
+              Register
+            </Link>
           </div>
         )}
       </div>
@@ -35,7 +44,7 @@ function HomePage() {
         <img
           src={landing}
           alt="Landing Page"
-          className="w-[400px] md:w-[400px] md:mx-10"
+          className="md:w-[600px] md:mx-10"
         />
       </div>
     </div>
