@@ -1,11 +1,13 @@
 import logo from "../assets/task.png";
 import { FaCircleUser } from "react-icons/fa6";
 import {
+  TfiHome,
   TfiAngleDown,
   TfiFiles,
   TfiWrite,
   TfiSettings,
   TfiPowerOff,
+  TfiInfoAlt,
 } from "react-icons/tfi";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -33,6 +35,7 @@ function NavBar() {
         </div>
         <ul className="flex space-x-4 focus:border-b-2 items-center justify-center">
           {isAuthenticated ? (
+            // Menu iniciado sesion | Web
             <>
               <li
                 className={`${
@@ -81,48 +84,34 @@ function NavBar() {
                 } hidden sm:block`}
               >
                 <div className="flex items-center gap-2">
-                  {/* <TfiWrite /> */}
                   <Link to="/about">About</Link>
                 </div>
               </li>
 
               <li className="pl-10 block">
-                <button
-                  onClick={openModal}
-                  className="flex items-center justify-center gap-2 pt-1 capitalize"
-                >
+                <button className="flex items-center justify-center gap-2 pt-1 capitalize ">
                   <FaCircleUser className="text-[20px]" />
-                  <h1 className="text-xs w-[50px] truncate md:text-base md:w-[150px]">
+                  <h1 className="text-xs max-w-[50px] truncate md:text-base md:w-[150px]">
                     {user.username}
                   </h1>
-                  <TfiAngleDown />
+                  <TfiAngleDown
+                    onClick={openModal}
+                    className="block sm:hidden"
+                  />
+                  <h1 className="hidden sm:block">|</h1>
+                  <Link
+                    to="/"
+                    onClick={() => {
+                      logout();
+                    }}
+                    className="hidden sm:block bg-white bg-opacity-10 rounded-md px-2 pb-1"
+                  >
+                    Logout
+                  </Link>
                 </button>
                 {userMenu && (
+                  // Menu iniciado sesion | Mobile
                   <div>
-                    <div className="hidden sm:block">
-                      <div
-                        onClick={closeModal} // Cierra la modal al hacer clic en el contenedor principal
-                        className="fixed inset-0 flex items-start justify-end pt-14 pr-28"
-                      >
-                        <ul className="text-2sm bg-white text-sky-950 border rounded-sm w-[120px]">
-                          <li className="selected">
-                            <TfiSettings />
-                            <Link>Perfil</Link>
-                          </li>
-                          <li className="selected">
-                            <TfiPowerOff />
-                            <Link
-                              to="/"
-                              onClick={() => {
-                                logout();
-                              }}
-                            >
-                              Logout
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
                     <div className="block sm:hidden">
                       <div
                         onClick={closeModal} // Cierra la modal al hacer clic en el contenedor principal
@@ -130,7 +119,7 @@ function NavBar() {
                       >
                         <ul className="text-md bg-white text-sky-950 border rounded-sm w-[120px]">
                           <li className="selected">
-                            <TfiFiles />
+                            <TfiHome />
                             <Link to="/home">Home</Link>
                           </li>
                           <li className="selected">
@@ -142,12 +131,8 @@ function NavBar() {
                             <Link to="/add-task">Add Task</Link>
                           </li>
                           <li className="selected">
-                            <TfiFiles />
+                            <TfiInfoAlt />
                             <Link to="/about">About</Link>
-                          </li>
-                          <li className="selected">
-                            <TfiSettings />
-                            <Link>Perfil</Link>
                           </li>
                           <li className="selected">
                             <TfiPowerOff />
@@ -169,16 +154,16 @@ function NavBar() {
               </li>
             </>
           ) : (
+            // Menu sin haber iniciado Sesion
             <>
               <li
                 className={`${
                   location.pathname === "/" || location.pathname === "/home"
                     ? "border-b px-1 py-1"
                     : "text-white"
-                } hidden sm:block`}
+                } block`}
               >
                 <div className="flex items-center gap-2">
-                  {/* <TfiWrite /> */}
                   <Link to="/home">Home</Link>
                 </div>
               </li>
@@ -188,7 +173,7 @@ function NavBar() {
                   location.pathname === "/about"
                     ? "border-b px-1 py-1"
                     : "text-white"
-                } hidden sm:block`}
+                } block`}
               >
                 <div className="flex items-center gap-2">
                   {/* <TfiWrite /> */}

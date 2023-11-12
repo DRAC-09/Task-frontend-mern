@@ -48,7 +48,7 @@ function TaskCard(prop) {
         </div>
       </div>
 
-      {/* Ventana Mondal */}
+      {/* Modal de Borrar Tarea */}
       <div className="fixed min-h-screen flex items-center justify-center">
         {isModalOpen && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 px-5">
@@ -71,6 +71,7 @@ function TaskCard(prop) {
           </div>
         )}
       </div>
+      {/* Final del Modal */}
     </div>
   );
 }
