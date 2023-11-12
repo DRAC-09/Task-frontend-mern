@@ -8,7 +8,7 @@ function HomePage() {
 
   return (
     <div className="flex flex-col-reverse md:flex-row md:pt-10">
-      <div className="flex md:w-1/2 flex-col items-center md:items-start justify-center md:px-10">
+      <div className="flex md:w-1/2 flex-col items-center md:items-start justify-center md:px-10 animate-fade-up animate-once animate-ease-linear">
         <p className="text-justify md:text-2xl font-light">
           Welcome to our task management platform! We're excited to have you on
           board. With our tool, you can efficiently organize your daily tasks
@@ -40,7 +40,7 @@ function HomePage() {
           </div>
         )}
       </div>
-      <div className="flex md:w-1/2  justify-center md:items-center">
+      <div className="flex md:w-1/2  justify-center md:items-center animate-fade-down animate-once animate-ease-linear">
         <img
           src={landing}
           alt="Landing Page"
