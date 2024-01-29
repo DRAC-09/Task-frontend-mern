@@ -1,6 +1,11 @@
 import axios from "./axios";
+import Cookies from "js-cookie";
 
-export const getTasksRequest = () => axios.get(`/tasks`);
+const cookies = Cookies.get();
+const token = cookies.token;
+
+export const getTasksRequest = () =>
+  axios.get(`/tasks`, { headers: { Authorization: `Bearer ${token}` } });
 export const getTaskRequest = (id) => axios.get(`/tasks/${id}`);
 export const createTaskRequest = (task) => axios.post(`/tasks`, task);
 export const updateTasksRequest = (id, task) => axios.put(`/tasks/${id}`, task);
