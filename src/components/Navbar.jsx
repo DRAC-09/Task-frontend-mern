@@ -5,7 +5,6 @@ import {
   TfiAngleDown,
   TfiFiles,
   TfiWrite,
-  TfiSettings,
   TfiPowerOff,
   TfiInfoAlt,
 } from "react-icons/tfi";
