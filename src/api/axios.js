@@ -11,4 +11,6 @@ const instance = axios.create({
   withCredentials: true,
 });
 
+console.log(token);
+
 export default instance;
