@@ -25,6 +25,7 @@ export const AuthProvider = (prop) => {
       // console.log(res.data);
       setUser(res.data);
       setIsAuthenticated(true);
+      Cookies.set("token", res.data.token);
     } catch (error) {
       setErrors(error.response.data);
     }
@@ -33,9 +34,10 @@ export const AuthProvider = (prop) => {
   const signin = async (user) => {
     try {
       const res = await loginRequest(user);
-      // console.log(res.data);
+      // console.log(res.data.token);
       setUser(res.data);
       setIsAuthenticated(true);
+      Cookies.set("token", res.data.token);
     } catch (error) {
       console.log(error);
       setErrors(error.response.data);

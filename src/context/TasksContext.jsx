@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import {
   createTaskRequest,
-  deteleTasksRequest,
+  deleteTasksRequest,
   getTaskRequest,
   getTasksRequest,
   updateTasksRequest,
@@ -35,7 +35,7 @@ export function TaskProvider(prop) {
 
   const deleteTask = async (id) => {
     try {
-      const res = await deteleTasksRequest(id);
+      const res = await deleteTasksRequest(id);
       if (res.status === 204) setTasks(tasks.filter((task) => task._id != id)); // Arreglo nuevo sin la tarea eliminada
     } catch (error) {
       console.log(error);
