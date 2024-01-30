@@ -23,11 +23,11 @@ export const AuthProvider = (prop) => {
     try {
       const res = await registerRequest(user);
       // console.log(res.data);
+      Cookies.set("token", res.data.token);
+      Cookies.set("username", res.data.username);
       setUser(res.data);
       setIsAuthenticated(true);
       setLoading(false);
-      Cookies.set("token", res.data.token);
-      Cookies.set("username", res.data.username);
     } catch (error) {
       setErrors(error.response.data);
     }
@@ -37,11 +37,11 @@ export const AuthProvider = (prop) => {
     try {
       const res = await loginRequest(user);
       // console.log(res.data.token);
+      Cookies.set("token", res.data.token);
+      Cookies.set("username", res.data.username);
       setUser(res.data);
       setIsAuthenticated(true);
       setLoading(false);
-      Cookies.set("token", res.data.token);
-      Cookies.set("username", res.data.username);
     } catch (error) {
       console.log(error);
       setErrors(error.response.data);
