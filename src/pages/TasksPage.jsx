@@ -8,6 +8,9 @@ function TasksPage() {
 
   useEffect(() => {
     window.location.reload();
+  }, []);
+
+  useEffect(() => {
     getTasks();
     // console.log(tasks);
   });
