@@ -7,7 +7,7 @@ const token = cookies.token;
 const instance = axios.create({
   baseURL: `https://task-backend-mern-nu.vercel.app/api`,
   // baseURL: `http://localhost:${PORT}/api`,
-  headers: { token: token },
+  headers: { Authorization: "Bearer " + token },
   withCredentials: true,
 });
 
