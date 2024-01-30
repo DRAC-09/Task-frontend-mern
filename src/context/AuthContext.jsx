@@ -50,6 +50,7 @@ export const AuthProvider = (prop) => {
 
   const logout = () => {
     Cookies.remove("token");
+    Cookies.remove("username");
     setIsAuthenticated(false);
     setUser(null);
   };
