@@ -8,7 +8,7 @@ function TasksPage() {
   useEffect(() => {
     getTasks();
     // console.log(tasks);
-  }, []);
+  });
 
   if (tasks.length === 0)
     return (
