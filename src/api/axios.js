@@ -8,7 +8,7 @@ const instance = axios.create({
   baseURL: `https://task-backend-mern-nu.vercel.app/api`,
   // baseURL: `http://localhost:${PORT}/api`,
   headers: { Authorization: "Bearer " + token },
-  withCredentials: true,
+  // withCredentials: true,
 });
 
 export default instance;
