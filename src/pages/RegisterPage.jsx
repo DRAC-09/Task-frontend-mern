@@ -87,14 +87,14 @@ function RegisterPage() {
             <p className="text-red-500 text-sm">Password is required</p>
           )}
 
-          <div className="flex justify-end">
+          <div className="flex justify-center mt-5">
             <button type="submit" className="btn bg-sky-800">
               Register
             </button>
           </div>
         </form>
 
-        <p className="flex gap-x-2 justify-center mt-5 text-sm md:text-md">
+        <p className="flex flex-col md:flex-row items-center gap-x-2 justify-center mt-5 text-sm md:text-md">
           Alrady have an account?{" "}
           <Link to="/login" className="text-sky-500">
             Sign In

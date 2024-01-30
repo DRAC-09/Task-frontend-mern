@@ -69,14 +69,14 @@ function LoginPage() {
           {errors.password && (
             <p className="text-red-500 text-sm mt-1">Password is required</p>
           )}
-          <div className="flex justify-end">
+          <div className="flex justify-center mt-5">
             <button type="submit" className="btn bg-sky-800">
               Login
             </button>
           </div>
         </form>
 
-        <p className="flex gap-x-2 justify-center mt-5 text-sm md:text-md">
+        <p className="flex flex-col md:flex-row items-center gap-x-2 justify-center mt-5 text-sm md:text-md">
           Don´t have an account?{" "}
           <Link to="/register" className="text-sky-500">
             Sign Up
