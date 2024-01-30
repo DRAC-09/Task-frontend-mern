@@ -2,10 +2,13 @@ import "../styles/tailwind.css";
 import landing from "../assets/landing.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+// import Cookies from "js-cookie";
 
 function HomePage() {
   const { isAuthenticated } = useAuth();
-
+  // const cookies = Cookies.get();
+  // const token = cookies.token;
+  // console.log(token);
   return (
     <div className="flex flex-col-reverse md:flex-row md:pt-10">
       <div className="flex md:w-1/2 flex-col items-center md:items-start justify-center md:px-10 animate-fade-up animate-once animate-ease-linear">
