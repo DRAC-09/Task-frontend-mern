@@ -26,7 +26,7 @@ function NavBar() {
         <div className="flex gap-2 items-center">
           <img src={logo} alt="Task Manager" className="h-7 w-7" />
           <Link
-            className="text-xl font-bold"
+            className="text-md md:text-xl font-bold"
             to={isAuthenticated ? "/tasks" : "/"}
           >
             Tasks Manager
@@ -34,7 +34,7 @@ function NavBar() {
         </div>
         <ul className="flex space-x-4 focus:border-b-2 items-center justify-center">
           {isAuthenticated ? (
-            // Menu iniciado sesion | Web
+            // Menu iniciado sesión | Web
             <>
               <li
                 className={`${
@@ -90,7 +90,7 @@ function NavBar() {
               <li className="pl-10 block">
                 <button className="flex items-center justify-center gap-2 pt-1 capitalize ">
                   <FaCircleUser className="text-[20px]" />
-                  <h1 className="text-xs max-w-[50px] truncate md:text-base md:w-[150px]">
+                  <h1 className="text-xs w-auto max-w-[60px] truncate md:text-base md:w-[150px] text-left">
                     {user.username}
                   </h1>
                   <TfiAngleDown

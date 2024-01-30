@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTasks } from "../context/TasksContext";
 import TaskCard from "../components/TaskCard";
+import noTask from "../assets/noTask.svg";
 
 function TasksPage() {
   const { getTasks, tasks } = useTasks();
@@ -12,8 +13,9 @@ function TasksPage() {
 
   if (tasks.length === 0)
     return (
-      <div className="flex h-[calc(100vh-100px)] w-screen items-center justify-center">
-        <h1>No tasks</h1>
+      <div className="flex flex-col h-[calc(100vh-150px)] w-full items-center justify-center">
+        <img className="w-28" src={noTask} alt="" />
+        <h1 className="text-[20px]">NO TASKS</h1>
       </div>
     );
   return (
