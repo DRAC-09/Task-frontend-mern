@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useContext, useEffect } from "react";
-import { registerRequest, loginRequest, verityTokenRequest } from "../api/auth";
+import { registerRequest, loginRequest } from "../api/auth";
 import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
@@ -25,6 +25,7 @@ export const AuthProvider = (prop) => {
       // console.log(res.data);
       setUser(res.data);
       setIsAuthenticated(true);
+      setLoading(false);
       Cookies.set("token", res.data.token);
     } catch (error) {
       setErrors(error.response.data);
@@ -37,6 +38,7 @@ export const AuthProvider = (prop) => {
       // console.log(res.data.token);
       setUser(res.data);
       setIsAuthenticated(true);
+      setLoading(false);
       Cookies.set("token", res.data.token);
     } catch (error) {
       console.log(error);
@@ -59,37 +61,37 @@ export const AuthProvider = (prop) => {
     }
   }, [errors]);
 
-  useEffect(() => {
-    async function checkLogin() {
-      const cookies = Cookies.get();
-      // Si no hay Token
-      if (!cookies.token) {
-        setIsAuthenticated(false);
-        setLoading(false);
-        return setUser(null);
-      }
-      // Si hay Token
-      try {
-        // lo envia al Backend para verificarlo.
-        const res = await verityTokenRequest(cookies.token);
-        // Si no retorna datos.
-        if (!res.data) {
-          setIsAuthenticated(false);
-          setLoading(false);
-          return;
-        }
-        // Pero, si retorna datos.
-        setIsAuthenticated(true);
-        setUser(res.data);
-        setLoading(false);
-      } catch (error) {
-        setIsAuthenticated(false);
-        setUser(null);
-        setLoading(false);
-      }
-    }
-    checkLogin();
-  }, []);
+  // useEffect(() => {
+  //   async function checkLogin() {
+  //     const cookies = Cookies.get();
+  //     // Si no hay Token
+  //     if (!cookies.token) {
+  //       setIsAuthenticated(false);
+  //       setLoading(false);
+  //       return setUser(null);
+  //     }
+  //     // Si hay Token
+  //     try {
+  //       // lo envia al Backend para verificarlo.
+  //       const res = await verityTokenRequest(cookies.token);
+  //       // Si no retorna datos.
+  //       if (!res.data) {
+  //         setIsAuthenticated(false);
+  //         setLoading(false);
+  //         return;
+  //       }
+  //       // Pero, si retorna datos.
+  //       setIsAuthenticated(true);
+  //       setUser(res.data);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       setIsAuthenticated(false);
+  //       setUser(null);
+  //       setLoading(false);
+  //     }
+  //   }
+  //   checkLogin();
+  // }, []);
 
   return (
     <AuthContext.Provider
