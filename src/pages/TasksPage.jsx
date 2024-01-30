@@ -7,6 +7,7 @@ function TasksPage() {
   const { getTasks, tasks } = useTasks();
 
   useEffect(() => {
+    window.location.reload();
     getTasks();
     // console.log(tasks);
   });
