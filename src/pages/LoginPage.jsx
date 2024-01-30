@@ -19,7 +19,11 @@ function LoginPage() {
   });
 
   useEffect(() => {
-    if (isAuthenticated) navigate("/tasks");
+    if (isAuthenticated)
+      // setTimeout(() => {
+      //   navigate("/tasks");
+      // }, 100);
+      navigate("/tasks");
   }, [isAuthenticated]);
 
   return (

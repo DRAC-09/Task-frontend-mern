@@ -22,7 +22,6 @@ export const AuthProvider = (prop) => {
   const signup = async (user) => {
     try {
       const res = await registerRequest(user);
-      // console.log(res.data);
       Cookies.set("token", res.data.token);
       Cookies.set("username", res.data.username);
       setUser(res.data);
@@ -36,7 +35,6 @@ export const AuthProvider = (prop) => {
   const signin = async (user) => {
     try {
       const res = await loginRequest(user);
-      // console.log(res.data.token);
       Cookies.set("token", res.data.token);
       Cookies.set("username", res.data.username);
       setUser(res.data);
