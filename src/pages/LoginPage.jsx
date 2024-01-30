@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import Cookies from "js-cookie";
 
 function LoginPage() {
   const {
@@ -14,18 +13,13 @@ function LoginPage() {
 
   const { signin, errors: loginErrors, isAuthenticated } = useAuth();
   const navigate = useNavigate();
-  const cookies = Cookies.get();
 
   const onSubmit = handleSubmit((data) => {
     signin(data);
   });
 
   useEffect(() => {
-    if (isAuthenticated && cookies.token) navigate("/tasks");
-
-    // setTimeout(() => {
-    //   navigate("/tasks");
-    // }, 100);
+    if (isAuthenticated) navigate("/tasks");
   }, [isAuthenticated]);
 
   return (

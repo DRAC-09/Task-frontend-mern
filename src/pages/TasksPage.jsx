@@ -8,8 +8,8 @@ function TasksPage() {
 
   useEffect(() => {
     getTasks();
-    // console.log(tasks);
-  }, []);
+    console.log(typeof getTasks());
+  });
 
   if (tasks.length === 0)
     return (
