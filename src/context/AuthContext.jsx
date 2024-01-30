@@ -24,7 +24,6 @@ export const AuthProvider = (prop) => {
       const res = await registerRequest(user);
       Cookies.set("token", res.data.token);
       Cookies.set("username", res.data.username);
-      localStorage.setItem("token", res.data.token);
       setUser(res.data);
       setIsAuthenticated(true);
       setLoading(false);
@@ -41,7 +40,6 @@ export const AuthProvider = (prop) => {
       setUser(res.data);
       setIsAuthenticated(true);
       setLoading(false);
-      localStorage.setItem("token", res.data.token);
     } catch (error) {
       console.log(error);
       setErrors(error.response.data);
