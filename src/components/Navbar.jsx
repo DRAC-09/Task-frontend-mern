@@ -11,6 +11,7 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 function NavBar() {
   const { isAuthenticated, logout, user } = useAuth();
@@ -19,6 +20,7 @@ function NavBar() {
 
   const openModal = () => setUserMenu(true);
   const closeModal = () => setUserMenu(false);
+  const cookie = Cookies.get();
 
   return (
     <nav className="fixed flex justify-center w-full mb-5 py-4 px-5 md:px-28 shadow-xl z-20">
@@ -91,7 +93,7 @@ function NavBar() {
                 <button className="flex items-center justify-center gap-2 pt-1 capitalize ">
                   <FaCircleUser className="text-[20px]" />
                   <h1 className="text-xs w-auto max-w-[60px] truncate md:text-base md:w-[150px] text-left">
-                    {user.username}
+                    {cookie.username}
                   </h1>
                   <TfiAngleDown
                     onClick={openModal}

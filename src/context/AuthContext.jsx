@@ -27,6 +27,7 @@ export const AuthProvider = (prop) => {
       setIsAuthenticated(true);
       setLoading(false);
       Cookies.set("token", res.data.token);
+      Cookies.set("username", res.data.username);
     } catch (error) {
       setErrors(error.response.data);
     }
@@ -40,6 +41,7 @@ export const AuthProvider = (prop) => {
       setIsAuthenticated(true);
       setLoading(false);
       Cookies.set("token", res.data.token);
+      Cookies.set("username", res.data.username);
     } catch (error) {
       console.log(error);
       setErrors(error.response.data);
@@ -60,6 +62,21 @@ export const AuthProvider = (prop) => {
       return () => clearTimeout(timer);
     }
   }, [errors]);
+
+  useEffect(() => {
+    async function checkLogin() {
+      const cookies = Cookies.get();
+      // Si no hay Token
+      if (!cookies.token) {
+        setIsAuthenticated(false);
+        setLoading(true);
+        return setUser(null);
+      }
+      setIsAuthenticated(true);
+      setLoading(false);
+    }
+    checkLogin();
+  });
 
   // useEffect(() => {
   //   async function checkLogin() {
