@@ -19,12 +19,16 @@ export const useTasks = () => {
 
 export function TaskProvider(prop) {
   const [tasks, setTasks] = useState([]);
+  const [loadTask, setLoadTask] = useState(true);
 
   const getTasks = async () => {
     try {
       const res = await getTasksRequest();
       setTasks(res.data);
     } catch (error) {
+      setLoadTask(true);
+      const res = await getTasksRequest();
+      setTasks(res.data);
       console.log(error);
     }
   };
@@ -68,6 +72,7 @@ export function TaskProvider(prop) {
         getTasks,
         getTask,
         updateTask,
+        loadTask,
       }}
     >
       {prop.children}
