@@ -1,7 +1,7 @@
 import "../styles/tailwind.css";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 function LoginPage() {
@@ -12,7 +12,6 @@ function LoginPage() {
   } = useForm();
 
   const { signin, errors: loginErrors, isAuthenticated } = useAuth();
-  const navigate = useNavigate();
 
   const onSubmit = handleSubmit((data) => {
     signin(data);
@@ -20,7 +19,8 @@ function LoginPage() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/home");
+      // navigate("/home");
+      window.location.replace("/tasks");
     }
   }, [isAuthenticated]);
 
