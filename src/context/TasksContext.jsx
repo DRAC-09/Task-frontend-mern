@@ -27,8 +27,6 @@ export function TaskProvider(prop) {
       setTasks(res.data);
     } catch (error) {
       setLoadTask(true);
-      const res = await getTasksRequest();
-      setTasks(res.data);
       console.log(error);
     }
   };

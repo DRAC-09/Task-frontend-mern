@@ -20,7 +20,7 @@ function LoginPage() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/tasks");
+      navigate("/home");
     }
   }, [isAuthenticated]);
 
