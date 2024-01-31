@@ -92,7 +92,7 @@ function NavBar() {
               <li className="pl-10 block">
                 <button className="flex items-center justify-center gap-2 pt-1 capitalize ">
                   <FaCircleUser className="text-[20px]" />
-                  <h1 className="text-xs w-auto max-w-[60px] truncate md:text-base md:w-[150px] text-left">
+                  <h1 className="text-xs md:w-min max-w-[60px] truncate md:text-base text-left">
                     {cookie.username}
                   </h1>
                   <TfiAngleDown
